@@ -1,0 +1,26 @@
+<p>meeting-rooms works!</p>
+<button (click)="showUI()">show</button>
+<div class="platform" *ngIf="show">
+  <ng-container *ngFor="let data of dummyData">
+    <ng-container *ngIf="show">
+      <div class="meeting">
+        <p [ngClass]=data.id>{{data.room}}</p>
+        <img src={{data.url}} alt={{data.room}}>
+      </div>
+    </ng-container>
+  </ng-container>
+</div>
+<!-- <div class="platform">
+  <div class="meeting">
+    <p>Tokyo</p>
+    <img src="https://picsum.photos/600/1000/?random=30" alt="tokyo">
+  </div>
+  <div class="meeting">
+    <p>Dresden</p>
+    <img src="https://picsum.photos/600/1000/?random=31" alt="Dresden">
+  </div>
+  <div class="meeting">
+    <p>Mosco</p>
+    <img src="https://picsum.photos/600/1000/?random=32" alt="Mosco">
+  </div>
+</div> -->
