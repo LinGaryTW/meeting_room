@@ -12,6 +12,10 @@
   }
   p {
     position: absolute;
+    bottom: 5%;
+    font-size: 56px;
+    margin-left: 2rem;
+    font-weight: 500;
   }
 
   &:hover {
@@ -22,4 +26,13 @@
 .platform {
   display: flex;
   justify-content: space-around;
+}
+
+.button-group{
+  display: flex;
+  justify-content: center;
+  button {
+    width: 100px;
+    height: 50px;
+  }
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-meeting-rooms',
@@ -14,14 +15,19 @@ export class MeetingRoomsComponent implements OnInit {
   ]
 
   show = true
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
     console.log(this.dummyData);
   }
 
   showUI = () => {
-    this.show = !this.show
+    this.show = !this.show;
   }
 
+  booking(): void {
+    this.router.navigate(['/booking']);
+  }
 }

@@ -1,0 +1,8 @@
+<p>booking works!</p>
+<!-- <label for="opCode">OP code:</label>
+<input type="text" name="opCode" [(ngModel)]="opCode">
+{{opCode}} -->
+
+<label for="name">OP code:</label>
+<input type="text" name="name" [formControl]="opCode" placeholder="opcode">
+{{opCode.value}}
