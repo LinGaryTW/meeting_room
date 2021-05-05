@@ -1,3 +1,4 @@
+import { MeetingRoomsService } from './meeting-room.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -8,22 +9,19 @@ import { Router } from '@angular/router';
 })
 export class MeetingRoomsComponent implements OnInit {
 
-  dummyData: any[] = [
-    { id: 'm1', room: 'Tokyo', url: "https://picsum.photos/600/1000/?random=30" },
-    { id: 'm2', room: 'Dresden', url: "https://picsum.photos/600/1000/?random=31" },
-    { id: 'm3', room: 'Mosco', url: "https://picsum.photos/600/1000/?random=32" }
-  ]
+  dummyData: any[];
 
-  testfile: string
+  testfile: string;
 
   show = true
 
   constructor(
-    private router: Router
+    private router: Router,
+    private meetingService: MeetingRoomsService
   ) { }
 
   ngOnInit(): void {
-    console.log(this.dummyData);
+    this.dummyData = this.meetingService.data();
     this.dummyData.forEach((data, i) => {
       console.log(data.id, i);
     });
@@ -37,6 +35,9 @@ export class MeetingRoomsComponent implements OnInit {
     this.show = !this.show;
     localStorage.setItem('info', 'Gary');
     console.log(localStorage.getItem('info'));
+    this.meetingService.testAPI().subscribe(res => {
+      console.log(res);
+    });
   }
 
   booking(): void {
@@ -57,6 +58,5 @@ export class MeetingRoomsComponent implements OnInit {
 
   deleteFile = (filename) => {
     console.log(filename);
-
   }
 }
