@@ -1,0 +1,17 @@
+table {
+  border: 1px solid;
+  border-collapse: separate;
+  border-spacing: 10px;
+  width: 100% ;
+  height: 100%;
+}
+td {
+  width: 14%;
+  font-size: 20px;
+  height: 14%;
+  padding: 10px;
+}
+.calendar-content:hover {
+  cursor:pointer;
+  color:#003C9D;
+}

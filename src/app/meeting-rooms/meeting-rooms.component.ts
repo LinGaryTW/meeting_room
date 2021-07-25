@@ -1,6 +1,7 @@
 import { MeetingRoomsService } from './meeting-room.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ReturnStatement } from '@angular/compiler';
 
 @Component({
   selector: 'app-meeting-rooms',
@@ -13,7 +14,7 @@ export class MeetingRoomsComponent implements OnInit {
 
   testfile: string;
 
-  show = true
+  show = true;
 
   constructor(
     private router: Router,
@@ -21,27 +22,10 @@ export class MeetingRoomsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.dummyData = this.meetingService.data();
-    this.dummyData.forEach((data, i) => {
-      console.log(data.id, i);
-    });
-    const ids = this.dummyData.map((data, i) => {
-      return data.id
-    })
-    console.log(ids);
   }
 
-  showUI = () => {
-    this.show = !this.show;
-    localStorage.setItem('info', 'Gary');
-    console.log(localStorage.getItem('info'));
-    this.meetingService.testAPI().subscribe(res => {
-      console.log(res);
-    });
-  }
-
-  booking(): void {
-    this.router.navigate(['/booking']);
+  booking(id): void {
+    this.router.navigate([`/booking/${id}`]);
   }
 
   saveFile = (event) => {

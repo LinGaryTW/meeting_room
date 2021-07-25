@@ -7,21 +7,27 @@ import { Observable } from 'rxjs'
 })
 
 export class MeetingRoomsService {
-
-  api = 'https://tpeoc.blob.core.windows.net/blobfs/GetFTDDamData.json';
+  users: any;
 
   constructor(
     private httpClient: HttpClient
   ) { }
 
-  testAPI(): Observable<any> {
-    return this.httpClient.get(this.api);
+  testAPI(meetingDate): Observable<any> {
+    let api = `http://localhost:3000/meets?date=${meetingDate}`
+    return this.httpClient.get(api);
   }
-  data = () => {
-    return [
-      { id: 'm1', room: 'Tokyo', url: "https://picsum.photos/600/1000/?random=30" },
-      { id: 'm2', room: 'Dresden', url: "https://picsum.photos/600/1000/?random=31" },
-      { id: 'm3', room: 'Mosco', url: "https://picsum.photos/600/1000/?random=32" }
-    ]
+  createMeeting(params): Observable<any> {
+    let api = `http://localhost:3000/create_meeting`
+    return this.httpClient.post(api, params)
+  }
+  getMeet(id) {
+    let api = `http://localhost:3000/meet/${id}`
+    return this.httpClient.get(api)
+  }
+  deleteUser(id) {
+    let params = { 'id': id }
+    let api = `http://localhost:3000/delete`
+    return this.httpClient.post(api, params)
   }
 }

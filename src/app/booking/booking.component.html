@@ -1,8 +1,27 @@
-<p>booking works!</p>
-<!-- <label for="opCode">OP code:</label>
-<input type="text" name="opCode" [(ngModel)]="opCode">
-{{opCode}} -->
+<form [formGroup]="meetingForm" (ngSubmit)="onSubmit()">
+  <div class="text-center">日期 {{date}}</div>
+  <label class="form-label col-6">
+    Meeting topic:
+    <input type="text" class="form-control" formControlName="topic">
+  </label>
 
-<label for="name">OP code:</label>
-<input type="text" name="name" [formControl]="opCode" placeholder="opcode">
-{{opCode.value}}
+  <label class="form-label col-6">
+    room:
+    <select class="form-select" aria-label="Default select example" formControlName="room">
+      <option selected="selected" value="Mosco">Mosco</option>
+      <option value="Tokyo">Tokyo</option>
+      <option value="Dresdon">Dresdon</option>
+    </select>
+  </label>
+
+  <label class="form-label col-6">
+    start:
+    <input type="text" class="form-control" formControlName="start">
+  </label>
+
+  <label class="form-label col-6">
+    end:
+    <input type="text" class="form-control" formControlName="end">
+  </label>
+  <button type="submit" class="btn btn-primary d-block mx-auto" [disabled]="!meetingForm.valid">Submit</button>
+</form>

@@ -1,53 +1,8 @@
-<p>meeting-rooms works!</p>
-<div class="button-group">
-  <button (click)="showUI()" class="btn btn-primary">show</button>
-  <button (click)="booking()" class="btn btn-secondary">go to booking</button>
+<div class="d-flex align-items-center justify-content-center pt-3">
+  <h1>OSP Taipei 會議室預約紀錄</h1>
 </div>
-<div class="platform" *ngIf="show">
-  <ng-container *ngFor="let data of dummyData">
-    <ng-container *ngIf="show">
-      <div class="meeting">
-        <p [ngClass]=data.id>{{ data.room | uppercase }}</p>
-        <img src={{data.url}} alt={{data.room}}>
-      </div>
-    </ng-container>
-  </ng-container>
-</div>
-<!-- <div class="platform">
-  <div class="meeting">
-    <p>Tokyo</p>
-    <img src="https://picsum.photos/600/1000/?random=30" alt="tokyo">
+<div class="container">
+  <div class="row mt-3" style="height: 90vh;">
+    <app-calendar></app-calendar>
   </div>
-  <div class="meeting">
-    <p>Dresden</p>
-    <img src="https://picsum.photos/600/1000/?random=31" alt="Dresden">
-  </div>
-  <div class="meeting">
-    <p>Mosco</p>
-    <img src="https://picsum.photos/600/1000/?random=32" alt="Mosco">
-  </div>
-</div> -->
-<button [swal]="['Oops!', 'This is not implemented yet :/', 'warning']">
-  Do it!
-</button>
-
-<button
-  [swal]="{ title: 'Save file as...', input: 'text', showDenyButton: true, denyButtonText: 'Don\'t save', showCancelButton: true }"
-  (confirm)="saveFile($event)" (deny)="handleDenial()" (dismiss)="handleDismiss()">
-
-  Save
-</button>
-
-<swal #deleteSwal title="Delete {{ testfile }}?" text="This cannot be undone" icon="question" [showCancelButton]="true"
-  [focusCancel]="true" (confirm)="deleteFile(testfile)">
-</swal>
-
-With [swal]:
-<button [swal]="deleteSwal">Delete {{ testfile }}</button>
-
-Or DIY:
-<button (click)="deleteSwal.fire()">Delete {{ testfile }}</button>
-<div class="mb-3">
-  <label for="exampleFormControlInput1" class="form-label">Email address</label>
-  <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
 </div>

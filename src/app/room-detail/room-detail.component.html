@@ -1,1 +1,29 @@
-<p>room-detail works!</p>
+<div class="meeting-record d-flex">
+  <div class="col-4 h-100 mosco">
+    <h2 style="text-align: center;">Mosco</h2>
+    <ng-container *ngFor="let meet of content.Mosco">
+      <div class="meet" (click)="showMeeting(meet.id)">
+        <div class="meeting-time">{{meet.start}}~{{meet.end}}</div>
+        <div class="meeting-title">{{meet.meeting_topic}}</div>
+      </div>
+    </ng-container>
+  </div>
+  <div class="col-4 h-100 dresdon">
+    <h2 class="w-100" style="text-align: center;">Tokyo</h2>
+    <ng-container *ngFor="let meet of content.Tokyo">
+      <div class="meet" (click)="showMeeting(meet.id)">
+        <div class="meeting-time">{{meet.start}}~{{meet.end}}</div>
+        <div class="meeting-title">{{meet.meeting_topic}}</div>
+      </div>
+    </ng-container>
+  </div>
+  <div class="col-4 h-100 tokyo">
+    <h2 class="w-100" style="text-align: center;">Dresdon</h2>
+    <ng-container *ngFor="let meet of content.Dresdon">
+      <div class="meet" (click)="showMeeting(meet.id)">
+        <div class="meeting-time">{{meet.start}}~{{meet.end}}</div>
+        <div class="meeting-title">{{meet.meeting_topic}}</div>
+      </div>
+    </ng-container>
+  </div>
+</div>

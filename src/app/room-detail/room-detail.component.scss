@@ -1,0 +1,21 @@
+.meet {
+  background-color: turquoise;
+  border-radius: 5px;
+  width: 80%;
+  margin: auto;
+  margin-bottom: 10px;
+  cursor:pointer;
+}
+.meeting-title {
+  opacity: 0;
+  height: 0px;
+  transition: height 0.5s;
+}
+.meeting-time, .meeting-title {
+  text-align: center;
+}
+.meet:hover .meeting-title {
+  opacity: 1;
+  height: 25px;
+  transition: all 0.18s ease-out 0.18s;
+}

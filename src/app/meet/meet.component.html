@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row">
+
+    <h1 class="mt-5 text-center">{{meet['meeting_topic']}}</h1>
+    <h6 class="mt-2 text-center">{{meet['meeting_date'] | date }}</h6>
+    <h6 class="mt-2 text-center">{{meet['start']}}~{{meet['end']}}</h6>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">##</th>
+          <th scope="col">name</th>
+          <th scope="col">delete?</th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let user of users; index as i;">
+          <tr class="users">
+            <td class="fs-2" scope="row">{{i + 1}}</td>
+            <td><img src="https://picsum.photos/50/50/?random={{i}}" class="rounded-circle"></td>
+            <td>{{user['name']}}</td>
+            <td>
+              <button class="btn btn-danger" [swal]="['真的要踢出去嗎？', 'Are you sure to ckick this guy out', 'warning']"
+                (confirm)="deleteUser(user['id'], i)">
+                delete
+              </button>
+            </td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+  </div>
+</div>

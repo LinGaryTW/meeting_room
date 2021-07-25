@@ -1,0 +1,26 @@
+<div class="d-flex">
+  <div class="col-6">
+    <h2 class="w-100" style="text-align: center;">六月</h2>
+    <table class='table h-50'>
+      <tr>
+        <td>Mon.</td>
+        <td>Tue.</td>
+        <td>Wed.</td>
+        <td>Thu.</td>
+        <td>Fri.</td>
+        <td>Sat.</td>
+        <td>Sun.</td>
+      </tr>
+      <ng-container *ngFor="let week of createDateArray()">
+        <tr>
+          <ng-container *ngFor="let date of week">
+            <td [ngStyle]="todayStyle(date)" class="calendar-content" (click)="showToday(date)">
+              {{ date.getDate() }}</td>
+          </ng-container>
+        </tr>
+      </ng-container>
+    </table>
+    <app-booking [date]="today"></app-booking>
+  </div>
+  <app-room-detail class="col-6" [today]="today"></app-room-detail>
+</div>

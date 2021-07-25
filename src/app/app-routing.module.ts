@@ -1,3 +1,4 @@
+import { MeetComponent } from './meet/meet.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { BookingComponent } from './booking/booking.component';
@@ -7,7 +8,7 @@ import { RoomDetailComponent } from './room-detail/room-detail.component';
 
 const routes: Routes = [
   {
-    path: 'booking',
+    path: 'booking/:id',
     component: BookingComponent
   },
   {
@@ -17,6 +18,10 @@ const routes: Routes = [
   {
     path: 'meeting-rooms',
     component: MeetingRoomsComponent
+  },
+  {
+    path: 'meet/:id',
+    component: MeetComponent
   },
   {
     path: '',
